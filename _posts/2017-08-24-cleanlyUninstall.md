@@ -15,9 +15,9 @@ description: Following the steps  to uninstall packages cleanly
 
 1. at login screen type ```Ctrl``` + ```Alt``` + ```F1``` ( or ```F2``` .. ```F6```)
 
-2. Enter a terminal in full black screen. From there install ``` _YOUR-PACKAGE-NAME_``` AGAIN by
+2. Enter a terminal in full black screen. From there install ```YOUR-PACKAGE-NAME``` AGAIN by
 ```
-sudo apt-get install _YOUR-PACKAGE-NAME_
+sudo apt-get install YOUR_PACKAGE_NAME
 ```
 3. Go back to the normal login screen and now log in into your account
 
@@ -26,10 +26,11 @@ sudo apt-get install _YOUR-PACKAGE-NAME_
 1. Refer to [this manual](http://codepub.cn/2015r/11/27/Ubuntu14-10-install-and-uninstall-sogou-input-method/) with Google translator
 
 2. Open terminal again and you only need following commands:
-```
-sudo dpkg -l _intial-letter-of-your-package_* (like sogoupinyin you should type in so* here)
 
-sudo apt-get purge _your-package-name-you-got-from-the-list_
+```
+sudo dpkg -l intial_letter_of_your_package* (like sogoupinyin you should type in so* here)
+
+sudo apt-get purge package_name_from_the_list
  
 sudo apt-get autoremove
 ```
