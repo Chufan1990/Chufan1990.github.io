@@ -3,7 +3,7 @@ layout: post
 title: Linux NetworkManager nmcli
 date: 2017-09-08
 categories: blog
-tags: [Linux NetworkManager: nmcli]
+tags: [Linux, NetworkManager, nmcli]
 description: Linux, NetworkManager, nmcli, command
 ---
 
