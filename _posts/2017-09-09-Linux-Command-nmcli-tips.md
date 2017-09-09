@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Linux Netword Manager Command: nmcli
+title: Linux NetwordManager: nmcli
 date: 2017-09-08
 categories: blog
 tags: [linux command: nmcli]
