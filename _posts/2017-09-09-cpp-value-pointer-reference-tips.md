@@ -70,7 +70,9 @@ int main()
 ```
 
 运行结果如下，（不同的机器坑会有所差别）
+
 ![我也不知道啥名字.jpg](https://github.com/Chufan1990/Chufan1990.github.io/raw/master/img/2011120710381445.jpg)
+
 
 可以看出，实参的地址为0x22ff44
 
