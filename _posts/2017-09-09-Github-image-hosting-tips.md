@@ -48,10 +48,10 @@ https://github.com/Chufan1990/Chufan1990.github.io/raw/master/img/20111207103814
 
 - 创建一个新issue
 
-![]()
+![](https://github.com/Chufan1990/Chufan1990.github.io/raw/master/img/13bc7eea-132a-11e7-9654-00e275ce3af1.JPG)
 
 - 拖拽图片进去，一次可以添加多个文件（然后把图片的引用复制过来，粘贴到*markdown*)
 
-![]()
+![](https://github.com/Chufan1990/Chufan1990.github.io/raw/master/img/19_upload_fig.JPG)
 
 - 上传完``issue``之后，就可以直接在图片上右键复制图片URL
