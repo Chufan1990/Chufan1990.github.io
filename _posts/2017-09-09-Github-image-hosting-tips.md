@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Github做图床
-date: 2015-3-02
+date: 2017-09-09
 categories: blog
 tags: [Github, 图床, image hosting]
 description: 新手向 Github简单图床教程
