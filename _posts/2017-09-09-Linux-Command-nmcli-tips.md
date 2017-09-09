@@ -5,6 +5,7 @@ date: 2017-09-08
 categories: blog
 tags: [linux command: nmcli]
 description: Linux, Network Manager, nmcli 
+
 ---
 
 ## 使用NETOWORK MANAGER命令行工具 nmcli
