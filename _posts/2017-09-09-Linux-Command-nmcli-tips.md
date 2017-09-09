@@ -111,7 +111,7 @@ nmcli c a type eth
 > 如有疑问，请使用```tab```完成功能。
 > 
 
-## 使用**nmcli**启动和停止接口
+## 使用nmcli启动和停止接口
 
 可使用**nmcli**工具启动和停止任意网络接口，其中包括主接口。例如：
 
@@ -127,7 +127,7 @@ nmcli dev disconnect iface ens3
 > 建议使用```nmcli dev disconnet iface iface-name```命令，而不是 ```nmcli con down id id-string```命令，因为连接断开可将放到“手动”模式，这样做用户让**NetworkManager**启动某个连接前，或发生外部事件（比如载波变化、休眠或睡眠）前，不会启动任何自动连接。
 > 
 
-## **nmcli**互动连接编辑器
+## nmcli互动连接编辑器
 
 **nmcli**工具有一个互动连接编辑器。请运行以下命令使用该工具：
 ```
@@ -154,3 +154,22 @@ describe setting.property
 ```
 nmcli> describe team.config
 ```
+
+## 了解nmcli选项
+
+很多**nmcli**命令是可以顾名思义的，但有几个选项需要进一步了解：
+
+**type-**连接类型。
+
+允许值为：```adsl```, ```bone```, ```bond-slave```, ```bridge```, ```bridge-slave```, ```bluetooth```, ```cdma```, ```ethernet```, ```gms```, ```infiniband```, ```olpc-mesh```, ```team```, ```team-slave```, ```vlan```, ```wifi```, ```wimax```.
+
+每个连接类型都有具体类型的命令选项。按**tab**建查看该列表。```type```选项可用与如下命令：```nmcli connection add```和```nmcli connection edit```。
+
+**con-name-**为连接配置分配的名称。
+
+如果未指定连接名称，则会以如下格式生成名称：
+```
+type-ifname[-number]
+```
+
+连接名称是```connection profile```的名称，不应与代表某个设备的名称混淆（比如 wlan0, ens3, em1 等等）。虽然用户可根据接口为连接命名，但这是两回事。
