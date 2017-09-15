@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Linux Command *chmod*
+title: Linux Command chmod
 date: 2017-09-09
 categories: blog
 tags: [Linux, command line, chmod]
