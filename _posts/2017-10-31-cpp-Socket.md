@@ -18,6 +18,7 @@ First you'll need to include the appropriate header files for sockets.
 <u>Windows</u>
 
 ```cpp
+
 #include <winsock.h>
 ```
 
@@ -27,6 +28,7 @@ winsock as in Windows Socket
 <u>Linux</u>
 
 ```cpp
+
 #include <sys/type.h>
 #include <sys/socket.h>
 #include <netinet/in.h>
@@ -185,6 +187,7 @@ newData = recv(mySocket, buffer, BUFFERSIZE, 0);
 At the top of every file I start with two lines:
 
 ```cpp
+
 #define __WINDOWS
 #define __LINUX
 ```
@@ -194,6 +197,7 @@ and comment out which ever one I'm not using at the time.
 This lets me do things like this:
 
 ```cpp
+
 #ifdef __WINDOWS
 #include <winsock.h>
 #endif
@@ -204,10 +208,12 @@ This lets me do things like this:
 #include <arpa/inet.h>
 void closesocket(int socket) {close(socket);}
 #endif
+```
 
 and
 
 ```cpp
+
 #ifdef __WINDOWS
 	WSADATA wsaData;
 #endif
@@ -216,6 +222,7 @@ and
 and
 
 ```cpp
+
 #ifdef __WINDOWS
 	WSAStartup(0x0202, &wsaData);
 #endif
@@ -224,6 +231,7 @@ and
 and 
 
 ```cpp
+
 #ifdef __WINDOWS
 	WSACleanup();
 #endif
