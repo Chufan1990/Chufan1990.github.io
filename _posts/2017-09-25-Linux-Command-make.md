@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Make 命令
-date: 2017-09-35
+date: 2017-09-25
 categories: blog
 tags: [Linux, Make]
 description: Make命令

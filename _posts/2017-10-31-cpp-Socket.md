@@ -15,9 +15,9 @@ Well sockets are used as an interface to access a network through your operating
 
 First you'll need to include the appropriate header files for sockets.
 
----Windows---
+<u>Windows</u>
 
-```
+```cpp
 #include <winsock.h>
 ```
 
@@ -26,7 +26,7 @@ winsock as in Windows Socket
 
 <u>Linux</u>
 
-```
+```cpp
 #include <sys/type.h>
 #include <sys/socket.h>
 #include <netinet/in.h>
@@ -39,7 +39,7 @@ The headers for Unix are split up more so you don't get the overhead of a huge a
 <u>Extra studd for windows...</u>
 You'll need a load of extra stuff for Windows：
 
-```
+```cpp
 WSADATA wsaData;
 WSAStartup(0x0202, &wsaData);
 ```
@@ -49,7 +49,7 @@ The first line is adata structure that holds data about the current winsock vers
 <u>Creating your first socket</u>
 First you need to define some information about the type of connection you want to establish. Here I'm after a two-way socket (SOCK_STREAM) that uses IPv4 (AF_INET) and uses TCP(IPPROTO_TCP) for reliable data transfer. Thanksfully both ways are interoperable between OS's.
 
-```
+```cpp
 int mySocket;
 struct sockaddr_in address;
 
@@ -65,13 +65,13 @@ The difference here come from the way both OS's handle networking...
 
 <u>Windows</u>
 
-```
+```cpp
 closesocket(mySocket);
 WSACleanup();
 ```
 
 <u>Linux</u>
 
-```
+```cpp
 close(mySocket);
 ```
