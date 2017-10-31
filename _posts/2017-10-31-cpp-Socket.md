@@ -36,7 +36,7 @@ winsock as in Windows Socket
 Pass these to GCC: -lsocket lnsl
 The headers for Unix are split up more so you don't get the overhead of a huge amount of stuff you just don't need!
 
-<u>Extra studd for windows...</u>
+<u>Extra studd for windows..</u>
 You'll need a load of extra stuff for Windows：
 
 ```cpp
@@ -60,8 +60,8 @@ if((thisSocket = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP)) < 0){
 }
 ```
 
-<Closing your first socket>
-The difference here come from the way both OS's handle networking...
+<u>Closing your first socket</u>
+The difference here come from the way both OS's handle networking..
 
 <u>Windows</u>
 
@@ -75,3 +75,7 @@ WSACleanup();
 ```cpp
 close(mySocket);
 ```
+## Hosting a connection with your socket
+There are three stages to host and establish a connection:
+
+1. Bind the 
