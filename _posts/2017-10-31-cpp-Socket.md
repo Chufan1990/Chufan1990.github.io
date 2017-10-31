@@ -15,7 +15,7 @@ Well sockets are used as an interface to access a network through your operating
 
 First you'll need to include the appropriate header files for sockets.
 
-<Windows>
+<strong>Windows
 
 ```
 #include <winsock.h>
@@ -24,7 +24,7 @@ First you'll need to include the appropriate header files for sockets.
 Pass this to GCC: /lib/libws2_32.a
 winsock as in Windows Socket
 
-<Linux>
+[Linux]()
 
 ```
 #include <sys/type.h>
@@ -36,7 +36,7 @@ winsock as in Windows Socket
 Pass these to GCC: -lsocket lnsl
 The headers for Unix are split up more so you don't get the overhead of a huge amount of stuff you just don't need!
 
-<Extra studd for windows...>
+[Extra studd for windows...]()
 You'll need a load of extra stuff for Windows：
 
 ```
