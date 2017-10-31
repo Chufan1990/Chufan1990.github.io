@@ -17,8 +17,8 @@ First you'll need to include the appropriate header files for sockets.
 
 <u>Windows</u>
 
-```c++
-#include <winsock.h>
+```c++	
+\#include <winsock.h>
 ```
 
 Pass this to GCC: /lib/libws2_32.a
@@ -27,10 +27,10 @@ winsock as in Windows Socket
 <u>Linux</u>
 
 ```cpp
-#include <sys/type.h>
-#include <sys/socket.h>
-#include <netinet/in.h>
-#include <arpa/inet.h>
+\#include <sys/type.h>
+\#include <sys/socket.h>
+\#include <netinet/in.h>
+\#include <arpa/inet.h>
 ```
 
 Pass these to GCC: -lsocket lnsl
