@@ -1,7 +1,7 @@
 ---
 layout: post
 title: C/C++ Socket
-date: 2017-09-35
+date: 2017-10-31
 categories: blog
 tags: [Linux, C++, Socket]
 description: C/C++ Socket FAQ and How-to Win+Linux
@@ -16,6 +16,7 @@ Well sockets are used as an interface to access a network through your operating
 First you'll need to include the appropriate header files for sockets.
 
 <Windows>
+
 ```
 #include <winsock.h>
 ```
@@ -24,6 +25,7 @@ Pass this to GCC: /lib/libws2_32.a
 winsock as in Windows Socket
 
 <Linux>
+
 ```
 #include <sys/type.h>
 #include <sys/socket.h>
@@ -36,6 +38,7 @@ The headers for Unix are split up more so you don't get the overhead of a huge a
 
 <Extra studd for windows...>
 You'll need a load of extra stuff for Windows：
+
 ```
 WSADATA wsaData;
 WSAStartup(0x0202, &wsaData);
@@ -45,6 +48,7 @@ The first line is adata structure that holds data about the current winsock vers
 
 <Creating your first socket>
 First you need to define some information about the type of connection you want to establish. Here I'm after a two-way socket (SOCK_STREAM) that uses IPv4 (AF_INET) and uses TCP(IPPROTO_TCP) for reliable data transfer. Thanksfully both ways are interoperable between OS's.
+
 ```
 int mySocket;
 struct sockaddr_in address;
@@ -60,12 +64,14 @@ if((thisSocket = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP)) < 0){
 The difference here come from the way both OS's handle networking...
 
 <Windows>
+
 ```
 closesocket(mySocket);
 WSACleanup();
 ```
 
 <Linux>
+
 ```
 close(mySocket);
 ```
