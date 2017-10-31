@@ -14,7 +14,7 @@ Well sockets are used as an interface to access a network through your operating
 ## Getting Started
 
 First you'll need to include the appropriate header files for sockets.
-
+---
 <u>Windows</u>
 
 ```
