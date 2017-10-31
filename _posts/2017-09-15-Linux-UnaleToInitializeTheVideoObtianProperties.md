@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Solve MATLAB issue "Unable to initialize the video obtian properties"
+title: Solve MATLAB issue Unable To Initialize The Video Obtian Properties
 date: 2017-09-25
 categories: blog
 tags: [Linux, MATLAB, VideoReader, unable to initialize]
