@@ -57,7 +57,7 @@ struct sockaddr_in address;
 
 address.sin_family = AF_INET;
 if((thisSocket = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP)) < 0){
-	perror("\nSocket Creation FAILED!"); 
+	perror("Socket Creation FAILED!\n"); 
 	return -1;
 }
 ```
@@ -88,4 +88,145 @@ There are three stages to host and establish a connection:
 
 <u>Binding to a socket</u>
 
+Before you can bind to a socket you want to know what port you want to listen on. In this example I'll be listening on port "54377" because __I WANT__!
 
+The `htons(int)` function basically converts a port number to the type that sockets prefer.
+
+```cpp
+address.sin_port = htons(54377);
+address.sin_addr.s_addr = INADDR_ANY;
+if(bind(mySocket, (struct sockaddr*)&address, sizeof(address))<0)
+{
+	perror("Binding Socket FAILED!\n");
+	if(mySocket) close(mySocket);
+	return -1;
+}
+```
+
+<u>Listening on socket</u>
+
+This function will **BLOCK** until someone tries to connect, so if your program hangs on this line and you're wondering why, it's because nobodies connected yet. The 5 refers to how many people can be trying to connect at once, not entirely sure about it tbh.
+
+```cpp
+printf("Listening on %d ... \n", 54377);
+if(listen(mySocket, 5) < 0)
+{
+	printf("Listening on Socket Failed!\n");
+	if(mySocket) close(mySocket);
+	return -1;
+}
+```
+
+<u>Accepting a conncetion</u>
+
+The last stage. You'll need an object to get information about who you are connecting to, whose information you can read out of the struct to find out more about them after the function returns.
+
+```cpp
+struct sockaddr_in clientAddress;
+if((mySocket = accept(mySocket, (struct sockaddr*)&clientAddress, sizeof(clientAddress))) < 0) 
+{
+	printf("Socket Connection FAILED!\n");
+	if(mySocket) close(mySocket);
+	return -1;
+}
+printf("Connection Established\n");
+```
+
+#### Connecting to a host
+
+Thanksfully connecting to  a host is blissfully simple. This will be connecting to port 54377, the same port that we should be listening on above and it'll conncet to the local host(aka you), so you can try this stuff out.
+
+```cpp
+address.sin_port = htons(54377);
+address.sin_addr.s_addr = inet_addr("127.0.0.1");
+if(connect(mySocket, (struct sockaddr*)&address, sizeof(address)) < 0)
+{
+	printf("Socket Connection Failed!\n");
+	if(mySocket) close(mySocket);
+	return -1;
+}
+printf("Connected!\n");
+```
+
+#### Sending data over a socket
+
+So you've got a socket set up at last, how do you send data over it?
+
+The `send()` function takes the following:
+
+1. The socket you want to send data over.
+2. A char array containing your data you want to send.
+3. An int containing the amount of data in the buffer.
+4. An offset in the buffer incase you only want to send a part of it. __0__ means start from the beginning.
+
+```cpp
+send(mySocket, buffer, BUFFERSIZE, 0);
+```
+#### Receiving data from a socket
+
+The `revc()` function takes the following:
+
+1. The socket you want to receive data from.
+2. A char array you want to store the data in.
+3. The maximum size of the above array.
+4. An offset in the buffer incase. __0__ starts from beginning.
+
+The function returns the number of bytes that were received, up to the maximum you specified.
+
+_WARNING_ - this function **BLOCK** until data arrives.
+
+```cpp
+int newData;
+newData = recv(mySocket, buffer, BUFFERSIZE, 0);
+```
+
+#### My ways for writing both Windows and Unix
+
+At the top of every file I start with two lines:
+
+```cpp
+#define __WINDOWS
+#define __LINUX
+```
+
+and comment out which ever one I'm not using at the time.
+
+This lets me do things like this:
+
+```cpp
+#ifdef __WINDOWS
+#include <winsock.h>
+#endif
+#ifdef __LINUX
+#include <sys/type.h>
+#include <sys/socket.h>
+#include <netinet/in.h>
+#include <arpa/inet.h>
+void closesocket(int socket) {close(socket);}
+#endif
+
+and
+
+```cpp
+#ifdef __WINDOWS
+	WSADATA wsaData;
+#endif
+```
+
+and
+
+```cpp
+#ifdef __WINDOWS
+	WSAStartup(0x0202, &wsaData);
+#endif
+```
+
+and 
+
+```cpp
+#ifdef __WINDOWS
+	WSACleanup();
+#endif
+```
+
+Notice how Linux makes it way easier to do networking.
