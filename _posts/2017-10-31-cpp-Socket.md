@@ -16,6 +16,7 @@ Well sockets are used as an interface to access a network through your operating
 First you'll need to include the appropriate header files for sockets.
 
 <u>Windows</u>
+
 ```cpp
 #include <winsock.h>
 ```
@@ -24,6 +25,7 @@ Pass this to GCC: /lib/libws2_32.a
 winsock as in Windows Socket
 
 <u>Linux</u>
+
 ```cpp
 #include <sys/type.h>
 #include <sys/socket.h>
@@ -35,7 +37,9 @@ Pass these to GCC: -lsocket lnsl
 The headers for Unix are split up more so you don't get the overhead of a huge amount of stuff you just don't need!
 
 <u>Extra studd for windows..</u>
+
 You'll need a load of extra stuff for Windows：
+
 ```cpp
 WSADATA wsaData;
 WSAStartup(0x0202, &wsaData);
@@ -44,7 +48,9 @@ WSAStartup(0x0202, &wsaData);
 The first line is adata structure that holds data about the current winsock version. The second line initializes the winsock component so you can use it. MISS THESE LINES AND NONE OF THIS WILL WORK.
 
 <u>Creating your first socket</u>
+
 First you need to define some information about the type of connection you want to establish. Here I'm after a two-way socket (SOCK_STREAM) that uses IPv4 (AF_INET) and uses TCP(IPPROTO_TCP) for reliable data transfer. Thanksfully both ways are interoperable between OS's.
+
 ```cpp
 int mySocket;
 struct sockaddr_in address;
@@ -57,19 +63,23 @@ if((thisSocket = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP)) < 0){
 ```
 
 <u>Closing your first socket</u>
-The difference here come from the way both OS's handle networking..
+
+The difference here come from the way both OS's handle networking.
 
 <u>Windows</u>
+
 ```cpp
 closesocket(mySocket);
 WSACleanup();
 ```
 
 <u>Linux</u>
+
 ```cpp
 close(mySocket);
 ```
 #### Hosting a connection with your socket
+
 There are three stages to host and establish a connection:
 
 1. Bind the socket. Going back to this wall covered in wall plugs, this is where you take your socket and stick it into a plug.
@@ -77,3 +87,5 @@ There are three stages to host and establish a connection:
 3. Accept a connection. This is where you welcome them in and start talking.
 
 <u>Binding to a socket</u>
+
+
