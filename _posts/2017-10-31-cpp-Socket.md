@@ -15,7 +15,7 @@ Well sockets are used as an interface to access a network through your operating
 
 First you'll need to include the appropriate header files for sockets.
 
-<strong>Windows
+<em>Windows</em>
 
 ```
 #include <winsock.h>
