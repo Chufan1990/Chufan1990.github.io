@@ -18,7 +18,7 @@ First you'll need to include the appropriate header files for sockets.
 <u>Windows</u>
 
 ```c++	
-<h1>#</h1> include <winsock.h>
+<span>#</span>include <winsock.h>
 ```
 
 Pass this to GCC: /lib/libws2_32.a
