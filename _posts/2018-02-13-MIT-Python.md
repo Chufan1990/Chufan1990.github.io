@@ -174,7 +174,7 @@ else:
 ------
 * **good enough** solution
 * start with a guess and increment by some **small value**
-* keep guessing if \|guess<sub>3</sub> - cube\| >= epsilon for some **small epsilon**
+* keep guessing if \|guess<sup>3</sup> - cube\| >= epsilon for some **small epsilon**
 * decreaing increment size 	-> slow program
 * increasing epsion 		-> less accurate answer
 
