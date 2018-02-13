@@ -139,7 +139,7 @@ if len(s1) == len(s2):
 		break
 ```
 
-##　GUESS-AND-CHECK
+## GUESS-AND-CHECK
 ------
 * the process below also called **exhaustive enumeration**
 * given a problem ...
