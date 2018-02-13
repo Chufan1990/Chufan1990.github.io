@@ -174,7 +174,7 @@ else:
 ------
 * **good enough** solution
 * start with a guess and increment by some **small value**
-* keep guessing if $|guess<sup>3</sup> - cube| >= epsilon$ for some **small epsilon**
+* keep guessing if $|guess^3 - cube| >= epsilon$ for some **small epsilon**
 * decreaing increment size 	-> slow program
 * increasing epsion 		-> less accurate answer
 
@@ -186,7 +186,7 @@ epsilon = 0.01
 guess = 0.0
 increment = 0.0001
 num_guesses = 0
-while　abs(guess**3 - cube) >= epsilon and guess <= cube:
+while abs(guess**3 - cube) >= epsilon and guess <= cube:
     guess += increment
     num_guesses += 1
 print('num_guesses =', num_guesses)
