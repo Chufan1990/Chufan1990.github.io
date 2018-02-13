@@ -57,7 +57,7 @@ s[0] = 'y'		# -> given an error
 s = 'y' + s[1:len(s)]	# -> is allowed, s bound to new object
 ```
 
-## for LOOPS RECAP
+### for LOOPS RECAP
 ------
 * `for` loops have a **loop variable** that iterates over a set of values
 
@@ -71,7 +71,7 @@ for var in range(4,6):		# -> `var` iterates over values 4, 5
 
 * `range` is a way to iterate over numbers, but a for loop variable can **iterate over any set of values**, not just numbers!
 
-## STRINGS AND LOOPS
+### STRINGS AND LOOPS
 ------
 * these two code snippets do the same thing
 * bottom one is more "pythonic"
@@ -86,5 +86,90 @@ for char in s:
     if char == 'i' or char == 'u':
 	print("There is an i or u")
 ```
+
+### CODE EXAMPLE:
+------
+#### ROBOT CHEERLEADERS
+------
+
+```python
+an_letters = "aefhilmnorsxAEFHILMNORSX"
+
+word = input("I will cheer for you! Enter a word: ")
+times = int(input("Enthusiasm level (1-10): "))
+
+#######################
+# UNEFFICIENT EXAMPLE #
+#######################
+i = 0
+while i < len(word):
+    char = word[i]
+    if char in an_letters:
+	print("Give me an " + char + "! " + char)
+    else:
+	print("Give me a" + char + "! " +char)
+    i = i + 1 						#Wrong
+
+###################
+# DS EXAMPLE #
+###################
+for char in word:
+    if char in an_letters:
+	print("Give me an" + char + "! " + char)
+    else
+	print("Give me a" + char + "! " + char)
+
+
+print("What does that spell? ")
+for i in range(times)
+    print(word, "!!!")
+```
+
+### EXERCISE
+------
+
+```python
+s1 = "mit u rock"
+s2 = "i rule mit"
+if len(s1) == len(s2):
+    for char1 in s1:
+	for char2 in s2:
+	    if char1 == char2:
+		print("comman letter")
+		break
+```
+
+##　GUESS-AND-CHECK
+------
+* the process below also called **exhaustive enumeration**
+* given a problem ...
+  * you are able to **guess a value** for solution
+  * you are able to **check if the solution is good**
+  * keep guessing until find solution ror guessed all values
+
+### GUESS-AND-CHECK - cube root
+------
+
+```python
+cube = 8
+for guess in range(cube+1):
+    if guess**3 == cube:
+	print("Cube root of", cube, "is", guess)
+```
+
+```python
+cube = 8
+for guess in range(abs(cube)+1):
+    if guess**3 >= abs(cube):
+	break
+if guess**3 != abs(cube):
+    print(cube, 'is not a prefect cube')
+else:
+    if cube < 0:
+	guess = -guess
+    print("Cube root of " + str(cube) + " is " + str(guess))
+```
+
+
 
 
