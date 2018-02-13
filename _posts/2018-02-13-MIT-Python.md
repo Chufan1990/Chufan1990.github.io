@@ -98,9 +98,9 @@ an_letters = "aefhilmnorsxAEFHILMNORSX"
 word = input("I will cheer for you! Enter a word: ")
 times = int(input("Enthusiasm level (1-10): "))
 
-#######################
-# UNEFFICIENT EXAMPLE #
-#######################
+####################
+## UNEFFICIENT EXAMPLE 
+####################
 i = 0
 while i < len(word):
     char = word[i]
@@ -110,9 +110,9 @@ while i < len(word):
 	print("Give me a" + char + "! " +char)
     i = i + 1 						# No an efficient way
 
-###################
-# DS EXAMPLE #
-###################
+####################
+## DS EXAMPLE 
+####################
 for char in word:
     if char in an_letters:
 	print("Give me an" + char + "! " + char)
