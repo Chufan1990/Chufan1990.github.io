@@ -42,5 +42,38 @@ s[::]		# -> evaluates to "abcdefgh", same as s[0:len(s):1]
 s[::-1]		# -> evaluates to "hgfedbca", same as s[-1:-(len(s)+1):-1]
 s[4:1:-2]	# -> evaluates to "ec"
 ```
+------
+* stirngs are **immutable** - cannot be modified
+```python
+s = "hello"
+s[0] = 'y'		# -> given an error
+s = 'y' + s[1:len(s)]	# -> is allowed, s bound to new object
+```
 
+## for LOOPS RECAP
+------
+* `for` loops have a **loop variable** that iterates over a set of values
+```python
+for var in range(4):		# -> `var` iterates over values 0,1,2,3
+    <expressions>		# expressions inside loop executed with each value for var
+
+for var in range(4,6):		# -> `var` iterates over values 4, 5
+    <expressions>
+```
+* `range` is a way to iterate over numbers, but a for loop variable can **iterate over any set of values**, not just numbers!
+
+## STRINGS AND LOOPS
+------
+* these two code snippets do the same thing
+* bottom one is more "pythonic"
+```python
+s = "abcdefgh"
+for index in range(len(s)):
+    if s[index] == 'i' or s[index] == 'u':
+	print("There is an i or u")
+
+for char in s:
+    if char == 'i' or char == 'u':
+	print("There is an i or u")
+```
 
