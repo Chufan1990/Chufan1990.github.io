@@ -108,7 +108,7 @@ while i < len(word):
 	print("Give me an " + char + "! " + char)
     else:
 	print("Give me a" + char + "! " +char)
-    i = i + 1 						#Wrong
+    i = i + 1 						# No an efficient way
 
 ###################
 # DS EXAMPLE #
@@ -170,6 +170,31 @@ else:
     print("Cube root of " + str(cube) + " is " + str(guess))
 ```
 
+## APPROXIMATE SOLUTIONS
+------
+* **good enough** solution
+* start with a guess and increment by some **small value**
+* keep guessing if `|guess^3 - cube| >= epsilon` for some **small epsilon**
+* decreaing increment size 	-> slow program
+* increasing epsion 		-> less accurate answer
+
+### APPROXIMATE SOLUTION - cube root
+
+```python
+cube = 27
+epsilon = 0.01
+guess = 0.0
+increment = 0.0001
+num_guesses = 0
+while　abs(guess**3 - cube) >= epsilon and guess <= cube:
+    guess += increment
+    num_guesses += 1
+print('num_guesses =', num_guesses)
+if abs(guess**3 - cube) >= epsilon:
+    print("Failed on cube root of", cube)
+else:
+    print(guess, 'is close to the cube root of', cube)
+```
 
 
 
