@@ -174,7 +174,7 @@ else:
 ------
 * **good enough** solution
 * start with a guess and increment by some **small value**
-* keep guessing if `|guess^3 - cube| >= epsilon` for some **small epsilon**
+* keep guessing if `|guess<sup>3</sup> - cube| >= epsilon` for some **small epsilon**
 * decreaing increment size 	-> slow program
 * increasing epsion 		-> less accurate answer
 
@@ -195,6 +195,49 @@ if abs(guess**3 - cube) >= epsilon:
 else:
     print(guess, 'is close to the cube root of', cube)
 ```
+
+## BISECTION SEARCH
+------
+* half interval each iteration
+* new guess is halfway in between
+
+### BISECTION SEARCH - cube root
+------
+
+```python
+cube = 27
+epsilon = 0.01
+num_guesses = 0
+low = 0
+high = cube
+guess = (high + low)/2.0
+while abs(guess**3 - cube) >= epsilon:
+    if guess**3 < cube:
+	low = guess
+    else:
+	high = guess
+    guess = (high + low)/2.0
+    num_guesses += 1
+print "num_guesses =", num_guesses
+print guess, "is close to the cube root of", cube
+```
+
+### BISECTION SEARCH CONVERGENCE
+------
+* search space
+ - first guess: 	N/2
+ - second guess:	N/4
+ - kth guess:		N/2<sup>k</sup>
+* guess converges on the order of log<sub>2</sub>N steps
+* bisection search works when value of function varies monotonically with input
+* code as shown only works for postitive cubes > 1 -- why?
+* challenge 	-> modify to work with negative cubes!
+		-> modify to work with x < 1!
+
+### X < 1
+------
+* if x < 1, search space is 0 to x but cube root is greater than x and less than 1
+* modify the code to choose the search space depending on value of x
 
 
 
